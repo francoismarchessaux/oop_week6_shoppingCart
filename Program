@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+namespace OOP6_ShoppinCart
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Fruit Orange = new Fruit("Orange", 0.25m);
+            Fruit Apple = new Fruit("Apple", 0.60m);
+            List<Fruit> shoppingList = new List<Fruit> { };
+            bool stop = false;
+            decimal total = 0;
+            while (stop == false)
+            {
+                Console.Write("Add to your shopping list : \n" + "1. Apple \n" + "2. Orange \n" + "3. Total \n");
+                int ans = Convert.ToInt32(Console.ReadLine());
+                switch (ans)
+                {
+                    case 1:
+                        shoppingList.Add(Apple);
+                        Console.WriteLine("Apple added \n" + "Press Enter to continue ...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+
+                    case 2:
+                        shoppingList.Add(Orange);
+                        Console.WriteLine("Orange added \n" + "Press Enter to continue ...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+
+                    case 3:
+                        stop = true;
+                        break;
+                }
+            }
+
+            for (int i = 0; i < shoppingList.Count; i++)
+            {
+                total += shoppingList[i].Price;
+            }
+
+            Console.Write("The Total is £" + total);
+            Console.ReadKey();
+        }
+    }
+}
+
